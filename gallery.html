@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✦ Dog Gallery ✦ My Y2K Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Gallery page specific styles */
+
+    /* Photo grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border: 4px solid var(--pink-bubble);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px var(--shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      background: var(--pink-light);
+    }
+    .gallery-item:hover {
+      transform: scale(1.04) rotate(1.5deg);
+      box-shadow: 0 10px 28px var(--shadow);
+      border-color: var(--pink-hot);
+    }
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    /* Placeholder shown when the real image file isn't there yet */
+    .gallery-item .placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--pink-light), #f0d6ff);
+      color: var(--pink-hot);
+      font-size: 3.5rem;
+      gap: 0.5rem;
+    }
+    .gallery-item .placeholder span.label {
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      color: var(--purple-accent);
+    }
+
+    /* Caption under each photo */
+    .gallery-item .caption {
+      background: var(--white);
+      padding: 0.5rem 0.75rem;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      color: var(--pink-hot);
+      text-align: center;
+    }
+
+    /* Lightbox overlay (click a photo to enlarge) */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(90, 26, 58, 0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 16px;
+      border: 5px solid var(--gold-glitter);
+      box-shadow: 0 0 60px var(--shadow);
+      animation: pop-in 0.3s ease;
+    }
+    @keyframes pop-in {
+      from { transform: scale(0.7); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+    #lightbox .close-btn {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      font-size: 2.5rem;
+      color: var(--gold-glitter);
+      cursor: pointer;
+      font-family: 'Fredoka One', cursive;
+      transition: transform 0.2s;
+    }
+    #lightbox .close-btn:hover { transform: scale(1.3) rotate(10deg); }
+
+    .instructions {
+      background: linear-gradient(135deg, #fff0f8, #f0d6ff);
+      border: 2px dashed var(--purple-accent);
+      border-radius: 14px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+    .instructions strong { color: var(--pink-hot); }
+    .instructions code {
+      background: var(--pink-light);
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      color: var(--purple-accent);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✦ My Blog ✦</h1>
+    <p class="tagline">just for fun</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="video.html">📺 Funny Video</a>
+    <a href="gallery.html" class="active">🐾 Gallery</a>
+    <a href="review.html">🎮 Sims 4 Review</a>
+    <a href="ranking.html">⭐ TV Rankings</a>
+  </nav>
+
+  <main>
+    <h2 class="page-title"><span>🐾</span> my best friend <span>🐾</span></h2>
+
+    <div class="card">
+      <h2>🌟 Ollie!!</h2>
+      <p>
+        welcome to the most important page on this blog. these are photos of my dog, Ollie! he is
+        objectively the cutest, funniest, and most insane dog. enjoy.
+      </p>
+    </div>
+
+    <!-- GALLERY GRID — replace placeholder divs with your actual photos! -->
+    <div class="gallery-grid" id="gallery">
+
+      <!-- Photo 1: replace the .placeholder div with <img src="dog1.jpg" alt="description"> -->
+      <div class="gallery-item">
+        <img src="dog1.jpg" alt="at the park in Brooklyn">
+        <div class="caption">at the park in Brooklyn</div>
+      </div>
+
+      <!-- Photo 2 -->
+      <div class="gallery-item">
+        <img src="dog2.jpg" alt="begging for treats">
+        <div class="caption">begging for treats</div>
+      </div>
+
+      <!-- Photo 3 -->
+      <div class="gallery-item">
+        <img src="dog3.jpg" alt="on a hike">
+        <div class="caption">on a hike</div>
+      </div>
+
+      <!-- Photo 4 -->
+      <div class="gallery-item">
+        <img src="dog4.jpg" alt="i'm in law school!">
+        <div class="caption">i'm in law school!</div>
+      </div>
+
+      <!-- Photo 5 -->
+      <div class="gallery-item">
+        <img src="dog5.jpg" alt="in the snow">
+        <div class="caption">in the snow</div>
+      </div>
+
+      <!-- Photo 6 -->
+      <div class="gallery-item">
+        <img src="dog6.jpg" alt="with my Uncle Meeko">
+        <div class="caption">with my Uncle Meeko</div>
+      </div>
+
+    </div>
+    <!-- To add more photos, just copy-paste one of the <div class="gallery-item"> blocks above! -->
+
+  </main>
+
+  <footer>
+    made with way too much pink — &copy; 2025
+  </footer>
+
+  <!-- LIGHTBOX overlay for clicking photos -->
+  <div id="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">✕</span>
+    <img id="lightbox-img" src="" alt="enlarged photo" />
+  </div>
+
+  <script src="sparkle.js"></script>
+  <script>
+    // Lightbox: clicking any real <img> in the gallery opens it full-screen
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('open');
+      });
+    });
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+    // Also close by clicking the dark background
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    });
+  </script>
+
+</body>
+</html>

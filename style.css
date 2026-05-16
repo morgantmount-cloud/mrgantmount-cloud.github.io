@@ -1,0 +1,271 @@
+/* =============================================
+   Y2K GLITTER BLOG - style.css
+   Shared styles for all pages
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap');
+
+/* --- CSS Variables (color palette) --- */
+:root {
+  --pink-hot: #ff2d8b;
+  --pink-bubble: #ff85c2;
+  --pink-light: #ffd6ec;
+  --pink-pale: #fff0f8;
+  --white: #ffffff;
+  --purple-accent: #c678f0;
+  --gold-glitter: #ffe066;
+  --text-dark: #5a1a3a;
+  --shadow: rgba(255, 45, 139, 0.3);
+}
+
+/* --- Reset & Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--pink-pale);
+  color: var(--text-dark);
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* Repeating star/sparkle pattern background */
+  background-image:
+    radial-gradient(circle, var(--pink-bubble) 1px, transparent 1px),
+    radial-gradient(circle, var(--purple-accent) 1px, transparent 1px);
+  background-size: 40px 40px, 80px 80px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* --- Sparkle cursor trail (JS adds these) --- */
+.sparkle-dot {
+  position: fixed;
+  pointer-events: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: sparkle-fade 0.6s ease-out forwards;
+  z-index: 9999;
+}
+@keyframes sparkle-fade {
+  0%   { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* --- Header --- */
+header {
+  background: linear-gradient(135deg, var(--pink-hot), var(--purple-accent), var(--pink-bubble));
+  background-size: 300% 300%;
+  animation: gradient-shift 4s ease infinite;
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  border-bottom: 4px solid var(--gold-glitter);
+  box-shadow: 0 4px 20px var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glitter shimmer overlay on header */
+header::before {
+  content: '✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦';
+  position: absolute;
+  top: 8px;
+  left: 0; right: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 224, 102, 0.8);
+  letter-spacing: 4px;
+  animation: shimmer-row 2s linear infinite alternate;
+}
+header::after {
+  content: '✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧ ✦ ✧';
+  position: absolute;
+  bottom: 8px;
+  left: 0; right: 0;
+  font-size: 0.75rem;
+  color: rgba(255, 224, 102, 0.8);
+  letter-spacing: 4px;
+  animation: shimmer-row 2s linear infinite alternate-reverse;
+}
+@keyframes shimmer-row {
+  from { letter-spacing: 4px; opacity: 0.7; }
+  to   { letter-spacing: 8px; opacity: 1;   }
+}
+
+header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--white);
+  text-shadow:
+    2px 2px 0 var(--pink-hot),
+    0 0 20px var(--gold-glitter),
+    0 0 40px rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  animation: title-pulse 3s ease-in-out infinite;
+}
+@keyframes title-pulse {
+  0%, 100% { text-shadow: 2px 2px 0 var(--pink-hot), 0 0 20px var(--gold-glitter); }
+  50%       { text-shadow: 2px 2px 0 var(--pink-hot), 0 0 40px var(--gold-glitter), 0 0 60px white; }
+}
+
+header p.tagline {
+  color: var(--gold-glitter);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* --- Navigation Bar --- */
+nav {
+  background: var(--white);
+  border-bottom: 3px solid var(--pink-bubble);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 3px 10px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  font-family: 'Fredoka One', cursive;
+  color: var(--pink-hot);
+  text-decoration: none;
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  border: 2px solid var(--pink-bubble);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: var(--pink-pale);
+}
+
+nav a:hover, nav a.active {
+  background: var(--pink-hot);
+  color: var(--white);
+  border-color: var(--pink-hot);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* --- Main Content Area --- */
+main {
+  max-width: 860px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* --- Card / Box style --- */
+.card {
+  background: var(--white);
+  border: 3px solid var(--pink-bubble);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 24px var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Corner sparkle decoration on cards */
+.card::before {
+  content: '✦';
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 1.5rem;
+  color: var(--pink-bubble);
+  animation: spin-star 4s linear infinite;
+}
+@keyframes spin-star {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.card h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.8rem;
+  color: var(--pink-hot);
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  line-height: 1.75;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+/* --- Page-specific headings --- */
+h2.page-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--pink-hot);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 0 var(--pink-bubble);
+}
+h2.page-title span {
+  font-size: 1.5rem;
+  margin: 0 0.3rem;
+}
+
+/* --- Divider --- */
+.sparkle-divider {
+  text-align: center;
+  color: var(--pink-bubble);
+  font-size: 1.3rem;
+  letter-spacing: 6px;
+  margin: 1.5rem 0;
+}
+
+/* --- Footer --- */
+footer {
+  background: linear-gradient(135deg, var(--pink-hot), var(--purple-accent));
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-top: 4px solid var(--gold-glitter);
+}
+footer span {
+  color: var(--gold-glitter);
+}
+
+/* --- Buttons --- */
+.btn-pink {
+  display: inline-block;
+  background: var(--pink-hot);
+  color: var(--white);
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-pink:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  nav a { font-size: 0.8rem; padding: 0.35rem 0.8rem; }
+  .card { padding: 1.25rem; }
+}

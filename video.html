@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✦ Fave Video ✦ My Y2K Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Video page specific styles */
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 4px solid var(--pink-hot);
+      box-shadow: 0 8px 30px var(--shadow);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .reaction-box {
+      background: linear-gradient(135deg, var(--pink-light), #f0d6ff);
+      border: 3px dashed var(--purple-accent);
+      border-radius: 16px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .reaction-box p { color: var(--text-dark); }
+
+    .rating-stars {
+      font-size: 2rem;
+      text-align: center;
+      margin: 1rem 0 0.25rem;
+      animation: twinkle 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      from { filter: brightness(1); }
+      to   { filter: brightness(1.5) drop-shadow(0 0 8px gold); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✦ My Blog ✦</h1>
+    <p class="tagline">just for fun</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="video.html" class="active">📺 Funny Video</a>
+    <a href="gallery.html">🐾 Gallery</a>
+    <a href="review.html">🎮 Sims 4 Review</a>
+    <a href="ranking.html">⭐ TV Rankings</a>
+  </nav>
+
+  <main>
+    <h2 class="page-title"><span>📺</span> dumb skit that makes me laugh <span>📺</span></h2>
+
+    <div class="card">
+      <h2>😂 SNL: The 301 Spartans</h2>
+      <p>who doesn't love Jack Black</p>
+    </div>
+
+    <!-- YouTube embed — video ID pulled from your link -->
+    <div class="video-wrapper">
+      <iframe
+        src="https://youtu.be/tzcNYKcR70g?si=KK49yjsyYnhaLNSK"
+        title="Funny Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Reaction / commentary box -->
+    <div class="reaction-box">
+      <p>
+        📝 <strong>Review:</strong> I need a 90 minute stupid historical comedy starring Jack Black as Gorgo.  
+      </p>
+    </div>
+
+    <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+    </p>
+
+  </main>
+
+  <footer>
+    made with way too much pink — &copy; 2025
+  </footer>
+
+  <script src="sparkle.js"></script>
+
+</body>
+</html>

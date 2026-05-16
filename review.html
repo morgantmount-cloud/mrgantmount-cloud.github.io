@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✦ Sims 4 Review ✦ My Y2K Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Review page specific styles */
+
+    /* Pros / Cons layout */
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    @media (max-width: 540px) {
+      .pros-cons { grid-template-columns: 1fr; }
+    }
+
+    .pros, .cons {
+      border-radius: 14px;
+      padding: 1.25rem;
+    }
+    .pros {
+      background: #e8fff0;
+      border: 3px solid #5ecb7a;
+    }
+    .cons {
+      background: #fff0f0;
+      border: 3px solid #f07070;
+    }
+    .pros h3 { color: #2a8a4a; font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 0.75rem; }
+    .cons h3 { color: #c04040; font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 0.75rem; }
+
+    .pros ul, .cons ul {
+      list-style: none;
+      padding: 0;
+    }
+    .pros li::before { content: '✅ '; }
+    .cons li::before { content: '❌ '; }
+    .pros li, .cons li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Star rating widget */
+    .star-rating {
+      display: flex;
+      gap: 0.4rem;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 1.25rem 0;
+      cursor: pointer;
+    }
+    .star { transition: transform 0.15s; }
+    .star:hover, .star.filled { color: var(--gold-glitter); filter: drop-shadow(0 0 4px gold); }
+    .star:hover { transform: scale(1.3); }
+
+    .review-body {
+      line-height: 1.85;
+      font-size: 1rem;
+    }
+    .review-body p { margin-bottom: 1rem; }
+    .review-body p strong { color: var(--pink-hot); }
+
+    /* Verdict box */
+    .verdict {
+      background: linear-gradient(135deg, var(--pink-hot), var(--purple-accent));
+      color: var(--white);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .verdict h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .verdict p { font-size: 1rem; opacity: 0.95; }
+
+    .instructions {
+      background: linear-gradient(135deg, #fff0f8, #f0d6ff);
+      border: 2px dashed var(--purple-accent);
+      border-radius: 14px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+    .instructions strong { color: var(--pink-hot); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✦ My Blog ✦</h1>
+    <p class="tagline">just for fun</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="video.html">📺 Funny Video</a>
+    <a href="gallery.html">🐾 Gallery</a>
+    <a href="review.html" class="active">🎮 Sims 4 Review</a>
+    <a href="ranking.html">⭐ TV Rankings</a>
+  </nav>
+
+  <main>
+    <h2 class="page-title"><span>🎮</span> my sims 4 review <span>🎮</span></h2>
+
+    <!-- Intro card -->
+    <div class="card">
+      <h2>🏠 The Sims 4: A Review</h2>
+      <p>
+        I have sunk an unreasonable number of hours into this game. Here are my thoughts —
+        completely unbiased, totally measured, and definitely not written at 2am while my Sim
+        was drowning in a pool because I removed the ladder...
+      </p>
+    </div>
+
+    <!-- Interactive star rating widget -->
+    <p style="text-align:center; font-family:'Fredoka One',cursive; color:var(--purple-accent);">
+      Rate this game yourself:</p>
+    <div class="star-rating" id="stars">
+      <span class="star" data-val="1">☆</span>
+      <span class="star" data-val="2">☆</span>
+      <span class="star" data-val="3">☆</span>
+      <span class="star" data-val="4">☆</span>
+      <span class="star" data-val="5">☆</span>
+    </div>
+    <p id="star-label" style="text-align:center; color:var(--pink-hot); font-family:'Fredoka One',cursive; font-size:1rem; min-height:1.5rem;"></p>
+
+ <!-- REVIEW BODY — filled in -->
+<div class="card">
+  <div class="review-body">
+    <p>
+      <strong>First impressions:</strong> I started playing The Sims 4 thinking it would be a casual, relaxing life simulator. Instead, it consumed my life. I was drawn in by the character creation and building tools, and within an hour I was emotionally invested in a fictional family whose house I spent way too long decorating. My expectations were “fun sandbox game,” but what I got was a full-blown god complex.
+    </p>
+    <p>
+      <strong>Gameplay:</strong> At its core, the game is about creating little digital people and then deciding their fate — whether that means building their dream life or absolutely ruining it for entertainment. The building system is incredibly satisfying, and I can spend hours designing houses I would never afford in real life. Creating Sims is just as fun, especially when you start giving them chaotic traits and making up storylines. The frustrating part is that sometimes the Sims feel a little too dumb (why are you walking into the bathroom while someone is showering???), and the game can feel shallow without extra content.
+    </p>
+    <p>
+      <strong>The Custom Content situation:</strong> This is where things get… questionable. The base game is fun, but it very clearly feels incomplete without expansion packs, game packs, and stuff packs. And there are SO MANY of them. Individually, they seem fine, but together they cost an absurd amount. Some packs are genuinely great and add a lot of depth, while others feel like things that should have been included from the start. Is it worth it? Yes. Is it outrageous? Also yes.
+    </p>
+    <p>
+      <strong>Best moment I've had in the game:</strong> I once created a perfect suburban family, gave them a beautiful house, stable jobs, and a golden retriever — and then immediately spiraled into chaos. Within two in-game days, one Sim started a fire making grilled cheese, another wet themselves at a party, and somehow a random townie died on the front lawn. It was absolute disaster… and I could not stop laughing. That’s the magic of this game.
+    </p>
+  </div>
+</div>
+
+<!-- Pros and Cons -->
+<h2 class="page-title" style="font-size:1.5rem;">the breakdown</h2>
+<div class="pros-cons">
+  <div class="pros">
+    <h3>Pros 💚</h3>
+    <ul>
+      <li>Incredibly fun and creative building system</li>
+      <li>Endless storytelling possibilities</li>
+      <li>Character customization is addictive</li>
+      <li>Insane gameplay moments</li>
+    </ul>
+  </div>
+  <div class="cons">
+    <h3>Cons 🔴</h3>
+    <ul>
+      <li>Base game can feel shallow without CC</li>
+      <li>Sims sometimes act… very questionable</li>
+      <li>Bugs and glitches</li>
+      <li>Why can't I control the weather?</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Final verdict -->
+<div class="verdict">
+  <h3>🏆 Final Verdict</h3>
+  <p>A chaotic, addictive sandbox that’s equal parts creativity and disaster — absolutely worth playing, but be prepared to lose hours (and possibly your morals) controlling tiny digital lives.</p>
+</div>
+
+  </main>
+
+  <footer>
+    made with way too much pink — &copy; 2025
+  </footer>
+
+  <script src="sparkle.js"></script>
+  <script>
+    // Interactive star rating widget
+    const stars = document.querySelectorAll('.star');
+    const label = document.getElementById('star-label');
+    const messages = ['', 'rough...', 'it\'s okay', 'pretty good!', 'love it!! 💖', 'MASTERPIECE ✨🎮✨'];
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const val = parseInt(star.dataset.val);
+        stars.forEach((s, i) => {
+          s.textContent = i < val ? '★' : '☆';
+          s.classList.toggle('filled', i < val);
+        });
+        label.textContent = messages[val];
+      });
+      // Hover preview
+      star.addEventListener('mouseenter', () => {
+        const val = parseInt(star.dataset.val);
+        stars.forEach((s, i) => s.textContent = i < val ? '★' : '☆');
+      });
+      star.addEventListener('mouseleave', () => {
+        stars.forEach(s => {
+          if (!s.classList.contains('filled')) s.textContent = '☆';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

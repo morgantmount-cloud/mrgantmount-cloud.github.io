@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✦ TV Rankings ✦ My Y2K Blog</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Ranking page specific styles */
+
+    .ranking-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 0.5rem;
+    }
+
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--white);
+      border: 3px solid var(--pink-bubble);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.85rem;
+      box-shadow: 0 3px 10px var(--shadow);
+      cursor: grab;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+    .ranking-item:hover {
+      transform: translateX(6px);
+      border-color: var(--pink-hot);
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+    .ranking-item.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+    .ranking-item.drag-over {
+      border-color: var(--purple-accent);
+      border-style: dashed;
+      background: var(--pink-light);
+    }
+
+    .rank-number {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.8rem;
+      color: var(--pink-hot);
+      min-width: 2.5rem;
+      text-align: center;
+      line-height: 1;
+    }
+    /* Special styling for top 3 */
+    .ranking-item:nth-child(1) .rank-number { color: #f5c518; font-size: 2.2rem; }
+    .ranking-item:nth-child(2) .rank-number { color: #a8a9ad; font-size: 2rem; }
+    .ranking-item:nth-child(3) .rank-number { color: #cd7f32; font-size: 1.9rem; }
+
+    .show-info { flex: 1; }
+    .show-name {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.15rem;
+      color: var(--text-dark);
+    }
+    .show-note {
+      font-size: 0.85rem;
+      color: #a05070;
+      margin-top: 0.15rem;
+    }
+    .show-emoji { font-size: 1.75rem; }
+
+    .drag-hint {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--purple-accent);
+      font-family: 'Fredoka One', cursive;
+      margin-bottom: 1rem;
+    }
+
+    .instructions {
+      background: linear-gradient(135deg, #fff0f8, #f0d6ff);
+      border: 2px dashed var(--purple-accent);
+      border-radius: 14px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+    }
+    .instructions strong { color: var(--pink-hot); }
+
+    /* Tier label tags */
+    .tier-badge {
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--pink-light);
+      color: var(--pink-hot);
+      border: 1px solid var(--pink-bubble);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>✦ My Blog ✦</h1>
+    <p class="tagline">just for fun</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🏠 Home</a>
+    <a href="video.html">📺 Funny Video</a>
+    <a href="gallery.html">🐾 Gallery</a>
+    <a href="review.html">🎮 Sims 4 Review</a>
+    <a href="ranking.html" class="active">⭐ TV Rankings</a>
+  </nav>
+
+  <main>
+    <h2 class="page-title"><span>📺</span> my tv show rankings <span>📺</span></h2>
+
+    <div class="card">
+      <h2>🏆 The Official Ranking</h2>
+      <p>
+        These are my TV show opinions and they are correct. (You can actually drag the items to reorder them — try it! ✨)
+      </p>
+    </div>
+
+    <p class="drag-hint">✦ drag to reorder ✦</p>
+
+    <!-- RANKING LIST — update data-show, data-note, and data-emoji with YOUR shows! -->
+    <ul class="ranking-list" id="ranking-list">
+      <li class="ranking-item" draggable="true"
+          data-show="Somebody Somewhere"
+          data-note="deeply human storytelling that finds humor and healing in everyday loneliness and connection"
+          data-emoji="🌾">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="30 Rock"
+          data-note="rapid-fire, absurd humor"
+          data-emoji="🏢">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="Dark"
+          data-note="intricate, mind-bending time travel story"
+          data-emoji="⌛">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="Curb Your Enthusiasm"
+          data-note="brutally honest, cringe-inducing humor"
+          data-emoji="🤦">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="The West Wing"
+          data-note="I love it for its idealistic, fast-talking portrayal of public service"
+          data-emoji="🗳️">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="Futurama"
+          data-note="ridiculous sci-fi comedy with surprisingly emotional moments"
+          data-emoji="🛸">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="True Detective (Season 1)"
+          data-note="haunting atmosphere"
+          data-emoji="🕵️">
+      </li>
+      <li class="ranking-item" draggable="true"
+          data-show="Guilty Pleasure Show: Nancy Drew 🔍"
+          data-note="I'm not ashamed. Okay maybe a little."
+          data-emoji="🫣">
+      </li>
+    </ul>
+
+  </main>
+
+  <footer>
+    made with way too much pink — &copy; 2025
+  </footer>
+
+  <script src="sparkle.js"></script>
+  <script>
+    // ---- Render ranking items from data attributes ----
+    function renderList() {
+      const items = document.querySelectorAll('.ranking-item');
+      items.forEach((item, i) => {
+        const show  = item.dataset.show;
+        const note  = item.dataset.note;
+        const emoji = item.dataset.emoji;
+        const tierLabel = i === 0 ? '🏆 #1' : i < 3 ? 'top tier' : i < 5 ? 'great' : 'still good';
+        item.innerHTML = `
+          <div class="rank-number">${i + 1}</div>
+          <div class="show-emoji">${emoji}</div>
+          <div class="show-info">
+            <div class="show-name">${show}</div>
+            <div class="show-note">${note}</div>
+          </div>
+        `;
+      });
+    }
+    renderList();
+
+    // ---- Drag-and-drop reordering ----
+    const list = document.getElementById('ranking-list');
+    let draggedItem = null;
+
+    list.addEventListener('dragstart', e => {
+      draggedItem = e.target.closest('.ranking-item');
+      draggedItem.classList.add('dragging');
+    });
+    list.addEventListener('dragend', e => {
+      draggedItem.classList.remove('dragging');
+      document.querySelectorAll('.ranking-item').forEach(i => i.classList.remove('drag-over'));
+      renderList(); // re-number after drop
+    });
+    list.addEventListener('dragover', e => {
+      e.preventDefault();
+      const over = e.target.closest('.ranking-item');
+      if (over && over !== draggedItem) {
+        document.querySelectorAll('.ranking-item').forEach(i => i.classList.remove('drag-over'));
+        over.classList.add('drag-over');
+        // Insert before or after based on mouse position
+        const rect = over.getBoundingClientRect();
+        const midY = rect.top + rect.height / 2;
+        if (e.clientY < midY) {
+          list.insertBefore(draggedItem, over);
+        } else {
+          list.insertBefore(draggedItem, over.nextSibling);
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
